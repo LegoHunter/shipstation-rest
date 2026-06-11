@@ -1,0 +1,27 @@
+# Builds, Tests, Deploys
+name: 'mvn deploy snapshot'
+run-name: 'mvn deploy snapshot'
+on:
+  push:
+    branches:
+      - 'feature/**'
+      - 'develop'
+      - 'main'
+jobs:
+  Maven-Deploy-Snapshot:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+          architecture: x64
+          cache: maven
+      - name: mvn deploy
+        run: mvn --batch-mode --update-snapshots deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
