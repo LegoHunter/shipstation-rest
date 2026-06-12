@@ -1,0 +1,17 @@
+package com.shipstation.api.rest.model;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class InternationalOptions {
+    private String contents;
+    private String customsItemsRequired;
+    private String nonDelivery;
+    private CustomsItem[] customsItems;
+}
