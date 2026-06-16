@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @Builder
 @NoArgsConstructor
@@ -20,7 +22,7 @@ public class AdvancedOptions {
     private String customField3;
     private String source;
     private Boolean mergedOrSplit;
-    private Long mergedIds;
+    private List<Long> mergedIds;
     private Long parentId;
     private String billToParty;
     private String billToAccount;
