@@ -60,7 +60,7 @@ class ShipStationRestClientIntegrationTest {
                               "orderId": 42,
                               "orderNumber": "BL-123",
                               "orderStatus": "awaiting_shipment",
-                              "orderDate": "2026-06-10T12:00:00Z",
+                              "orderDate": "2026-04-01T04:39:02.8300000",
                               "items": [{"orderItemId": 7, "sku": "3001-RED", "quantity": 2}]
                             }
                           ],
@@ -79,6 +79,7 @@ class ShipStationRestClientIntegrationTest {
             ShipStationOrder order = orders.getOrders().getFirst();
             assertThat(order.getOrderId()).isEqualTo(42L);
             assertThat(order.getOrderNumber()).isEqualTo("BL-123");
+            assertThat(order.getOrderDate()).hasToString("2026-04-01T04:39:02.830Z");
             assertThat(order.getItems()).hasSize(1);
             assertThat(order.getItems()[0].getSku()).isEqualTo("3001-RED");
         });
